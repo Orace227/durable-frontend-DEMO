@@ -3,10 +3,10 @@
 import React from "react";
 
 // components
-import Banner from "./components/LandingPage/banner/Banner";
-import Footer from "./components/LandingPage/footer/Footer";
-import LpHeader from "./components/LandingPage/header/Header";
-import Testimonial from "./components/LandingPage/testimonial/Testimonial";
+import Banner from "./components/landingpage/banner/Banner";
+import Footer from "./components/landingpage/footer/Footer";
+import LpHeader from "./components/landingpage/header/Header";
+import Testimonial from "./components/landingpage/testimonial/Testimonial";
 import RootLayout from "./layout";
 import Questions from "./components/landingpage/faq/Questions";
 import InfoCard from "./components/landingpage/InfoCard/InfoCard";
