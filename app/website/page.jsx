@@ -3,8 +3,8 @@ import React from "react";
 import { useFormData } from "../store/useFormData";
 import { Box, Typography, Avatar, Button } from "@mui/material";
 import Link from "next/link";
-import LpHeader from "../components/LandingPage/header/Header";
-import Footer from "../components/LandingPage/footer/Footer";
+import LpHeader from "../components/landingpage/header/Header";
+import Footer from "../components/landingpage/footer/Footer";
 
 function Website() {
   const { formData } = useFormData();

@@ -14,8 +14,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CreateWithAiModal from "./CreateWithAiModal";
 import { useFormData } from "../store/useFormData";
 import { useRouter } from "next/navigation";
-import LpHeader from "../components/LandingPage/header/Header";
-import Footer from "../components/LandingPage/footer/Footer";
+import LpHeader from "../components/landingpage/header/Header";
+import Footer from "../components/landingpage/footer/Footer";
 function StepperForm() {
   const steps = ["websiteType", "Business Name", "Location", "Upload Logo"]; // Updated steps array
   const options = [
