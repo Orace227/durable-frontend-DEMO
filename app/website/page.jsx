@@ -37,7 +37,9 @@ function Website() {
                 <Grid item xs={6} display={"flex"} justifyContent={"center"}>
                   <Avatar
                     alt="Logo"
-                    src={formData.logo ? formData.logo : ""}
+                    src={
+                      formData.logo ? URL?.createObjectURL(formData.logo) : ""
+                    }
                     sx={{ width: 100, height: 100, marginBottom: 2 }}
                   />
                   <Grid
