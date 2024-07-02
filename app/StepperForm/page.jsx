@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "@mui/material";
+import { Container, FormControl, InputLabel } from "@mui/material";
 import React, { useState, useRef } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
@@ -16,8 +16,16 @@ import { useFormData } from "../store/useFormData";
 import { useRouter } from "next/navigation";
 import LpHeader from "../components/landingpage/header/Header";
 import Footer from "../components/landingpage/footer/Footer";
+import CustomSelect from "../components/stepperForm/CustomSelect";
+import { MultiStepLoader } from "./MultiStepLoader";
+
 function StepperForm() {
-  const steps = ["websiteType", "Business Name", "Location", "Upload Logo"]; // Updated steps array
+  const steps = [
+    "websiteType",
+    "Business Name",
+    "Upload Logo",
+    "Business Description",
+  ]; // Updated steps array
   const options = [
     { value: "Business", label: "Business" },
     { value: "Portfolio", label: "Portfolio" },
@@ -30,11 +38,12 @@ function StepperForm() {
   const [skipped, setSkipped] = useState(new Set());
   const [formValues, setFormValues] = useState({
     websiteType: "",
-    location: "",
+    businessDescription: "",
     businessName: "",
     logo: null, // State to hold the uploaded logo
   });
   const [previewImage, setPreviewImage] = useState(null); // State to preview image
+  const [showStepLoader, setShowStepLoader] = useState(false); // State to preview image
 
   const fileInputRef = useRef(null); // Reference for file input element
 
@@ -61,7 +70,7 @@ function StepperForm() {
     setActiveStep(0);
     setFormValues({
       websiteType: "",
-      location: "",
+      businessDescription: "",
       businessName: "",
       logo: null,
     });
@@ -119,82 +128,69 @@ function StepperForm() {
     switch (step) {
       case 0:
         return (
-          <TextField
-            select
-            sx={{ color: "black" }}
-            label="What type of business are you building?"
-            value={formValues.websiteType}
-            name="websiteType"
-            onChange={handleChange}
-            fullWidth
-            InputProps={{
-              sx: {
-                "& .MuiSelect-select": {
-                  color: "black",
-                  paddingRight: "24px", // Adjust to make space for the icon
-                },
-              },
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            {options.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
+            <Typography variant="h6" sx={{ mb: 2, color: "#4936D5" }}>
+              Type of your business
+            </Typography>
+            <FormControl fullWidth>
+              <InputLabel style={{ color: "#000000" }}>
+                What type of business are you building?
+              </InputLabel>
+              <CustomSelect
+                value={formValues.websiteType}
+                name="websiteType"
+                onChange={handleChange}
+                label="What type of business are you building?"
+              >
+                {options.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </CustomSelect>
+            </FormControl>
+          </Box>
         );
       case 1:
         return (
-          <TextField
-            label="What is the name of your business?"
-            value={formValues.businessName}
-            name="businessName"
-            onChange={handleChange}
-            InputProps={{
-              sx: {
-                color: "black",
-              },
-            }}
-            fullWidth
-          />
-        );
-      case 2:
-        return (
-          <Box
-            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-          >
-            <TextField
-              label="Where is your business located?"
-              value={formValues.location}
-              name="location"
-              onChange={handleChange}
-              InputProps={{
-                sx: {
-                  color: "black",
-                },
-              }}
-              fullWidth
-            />
-            <Button
-              variant="contained"
-              onClick={handleCurrentLocation}
-              color="primary"
+          <>
+            <Box
               sx={{
-                marginLeft: "5px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
-              <LocationOnIcon
-                sx={{
-                  fontSize: 43,
-                  color: "white",
-                  width: "20px",
-                  height: "36px",
+              <Typography variant="h6" sx={{ mb: 2, color: "#4936D5" }}>
+                Name of your business
+              </Typography>
+              <TextField
+                label="What is the name of your Business?"
+                value={formValues.businessName}
+                name="businessName"
+                onChange={handleChange}
+                InputProps={{
+                  sx: {
+                    color: "black",
+                    "& .MuiInputBase-input": {
+                      backgroundColor: "transparent", // Ensure transparent background
+                      WebkitBoxShadow: "none", // Remove any webkit box shadow
+                      WebkitTextFillColor: "initial", // Use initial text fill color
+                    },
+                  },
                 }}
+                fullWidth
               />
-            </Button>
-          </Box>
+            </Box>
+          </>
         );
-      case 3:
+      case 2:
         return (
           <Box
             sx={{
@@ -230,7 +226,8 @@ function StepperForm() {
                 padding: 2,
                 textAlign: "center",
                 cursor: "pointer",
-                backgroundColor: "#2c2c2c",
+                // backgroundColor: "#13DEB9",
+
                 marginBottom: 2,
               }}
               onDragOver={handleDragOver}
@@ -252,20 +249,50 @@ function StepperForm() {
                 />
               ) : (
                 <Box sx={{ textAlign: "center" }}>
-                  <CloudUploadIcon sx={{ fontSize: 48, color: "white" }} />
-                  <Typography variant="subtitle1" sx={{ color: "white" }}>
+                  <CloudUploadIcon sx={{ fontSize: 48, color: "#4936D5" }} />
+                  <Typography variant="subtitle1" sx={{ color: "#4936D5" }}>
                     Drag & Drop or Click to Upload
                   </Typography>
                 </Box>
               )}
             </Box>
             {formValues.logo && (
-              <Typography sx={{ color: "white" }}>
+              <Typography sx={{ color: "black" }}>
                 File Selected: {formValues.logo.name}
               </Typography>
             )}
           </Box>
         );
+      case 3:
+        return (
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 2, color: "#4936D5" }}>
+              Description of your business
+            </Typography>
+            <TextField
+              label="Enter your Business description"
+              value={formValues.businessDescription}
+              name="businessDescription"
+              onChange={handleChange}
+              InputProps={{
+                sx: {
+                  color: "black",
+                  padding: "0", // Set padding to 0 to remove it
+                },
+              }}
+              multiline
+              rows={4} // Adjust the number of rows as needed
+              fullWidth
+            />
+          </Box>
+        );
+
       default:
         return null;
     }
@@ -274,67 +301,37 @@ function StepperForm() {
   const handleGenerateWebsite = () => {
     console.log("Form Values:", formValues);
     updateCustomer(formValues);
-    router.push("/website");
+    setShowStepLoader(true);
+    setTimeout(() => {
+      setShowStepLoader(false);
+      router.push("/website");
+    }, 6000);
   };
+  const loadingStates = [
+    { text: "Step 1: Loading data..." },
+    { text: "Step 2: Processing information..." },
+    { text: "Step 3: Rendering content..." },
+  ];
 
-  const handleCurrentLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-          fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBnwJ8WGKD2IIchAhHJM7Vx21Dw_cOPLHU`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.results && data.results.length > 0) {
-                console.log("data.results", data.results);
-                const addressComponents = data.results[0].address_components;
-                let formattedAddress = "";
-                for (let component of addressComponents) {
-                  if (component.types.includes("street_number")) {
-                    formattedAddress += component.long_name + ", ";
-                  } else if (component.types.includes("route")) {
-                    formattedAddress += component.long_name + ", ";
-                  } else if (
-                    component.types.includes("administrative_area_level_3")
-                  ) {
-                    setFormValues((prevValues) => ({
-                      ...prevValues,
-                      location: formattedAddress + component.long_name,
-                    }));
-                    break;
-                  }
-                }
-              }
-            })
-            .catch((error) => {
-              console.error("Error fetching location:", error);
-            });
-        },
-        (error) => {
-          console.error("Error getting geolocation:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  };
   return (
     <>
       <LpHeader />
-
+      {showStepLoader && (
+        <MultiStepLoader
+          loadingStates={loadingStates}
+          loading={showStepLoader}
+          duration={2000}
+          loop={true}
+        />
+      )}
       <div className=" overflow-hidden ">
         <Container maxWidth="lg" style={{ overflow: "hidden" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
               justifyContent: "center",
-              minHeight: "100vh",
+              marginTop: "10px",
               padding: 3,
             }}
           >
@@ -355,6 +352,17 @@ function StepperForm() {
                 );
               })}
             </Stepper>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "50vh",
+              padding: 3,
+            }}
+          >
             <Box
               sx={{
                 width: "100%",
@@ -367,7 +375,12 @@ function StepperForm() {
                 bgcolor: "white",
               }}
             >
-              <Typography sx={{ mb: 2, color: "black" }}>
+              <Typography
+                variant="h3"
+                display={"flex"}
+                justifyContent={"center"}
+                sx={{ mb: 2, color: "black" }}
+              >
                 Step {activeStep + 1}
               </Typography>
               {renderFormContent(activeStep)}
@@ -392,9 +405,9 @@ function StepperForm() {
                       }}
                       disabled={
                         (activeStep === 0 && !formValues.websiteType) ||
-                        (activeStep === 2 && !formValues.location) ||
                         (activeStep === 1 && !formValues.businessName) ||
-                        (activeStep === 3 && !formValues.logo)
+                        (activeStep === 2 && !formValues.logo) ||
+                        (activeStep === 3 && !formValues.businessDescription)
                       }
                     >
                       Generate Website
@@ -416,13 +429,24 @@ function StepperForm() {
                       sx={{
                         backgroundColor: "#3f51b5",
                         color: "white",
-                        "&:hover": { backgroundColor: "#303f9f" },
+                        padding: "10px 20px",
+                        borderRadius: "8px",
+                        boxShadow: "0 3px 5px 2px rgba(63, 81, 181, .3)",
+                        "&:hover": {
+                          backgroundColor: "#303f9f",
+                          boxShadow: "0 3px 5px 2px rgba(48, 63, 159, .3)",
+                        },
+                        "&:disabled": {
+                          backgroundColor: "#9ea7cf",
+                          color: "#cfd4ea",
+                          boxShadow: "none",
+                        },
                       }}
                       disabled={
                         (activeStep === 0 && !formValues.websiteType) ||
-                        (activeStep === 2 && !formValues.location) ||
                         (activeStep === 1 && !formValues.businessName) ||
-                        (activeStep === 3 && !formValues.logo)
+                        (activeStep === 2 && !formValues.logo) ||
+                        (activeStep === 3 && !formValues.businessDescription)
                       }
                     >
                       Next

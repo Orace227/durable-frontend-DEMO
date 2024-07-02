@@ -44,7 +44,7 @@ function Website() {
                 Website Type: {formData.websiteType}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Location: {formData.location}
+                {formData.businessDescription}
               </Typography>
               <Button variant="body1" gutterBottom>
                 View Website
