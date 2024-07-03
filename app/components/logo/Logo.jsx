@@ -18,7 +18,7 @@ const Logo = () => {
       {customizer.activeMode === "dark" ? (
         <Link href="/">
           <Image
-            src="/images/logos/light-logo.svg"
+            src="/images/logos/2.png"
             alt="logo"
             height={customizer.TopbarHeight}
             width={174}
@@ -28,7 +28,7 @@ const Logo = () => {
       ) : (
         <Link href="/">
           <Image
-            src={"/images/logos/dark-logo.svg"}
+            src={"/images/logos/2.png"}
             alt="logo"
             height={customizer.TopbarHeight}
             width={174}
