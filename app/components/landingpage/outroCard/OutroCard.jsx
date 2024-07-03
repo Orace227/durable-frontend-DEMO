@@ -101,7 +101,7 @@ function OutroCard() {
                     style={{ position: "absolute", top: 0, left: 0 }}
                   />
                   <motion.img
-                    src="/images/landingpage/Cards/OutroCard/2.png"
+                    src="/images/logos/1.png"
                     className="w-full h-full"
                     alt="Image 2"
                     initial="hidden"
@@ -113,8 +113,8 @@ function OutroCard() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                     style={{
                       position: "absolute",
-                      top: -70,
-                      left: -5,
+                      top: -30,
+                      left:10,
                       zIndex: 1,
                     }}
                   />
