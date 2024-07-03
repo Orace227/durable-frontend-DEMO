@@ -26,7 +26,7 @@ export default function LandingPage() {
         <Testimonial />
         {/* <Features /> */}
         <Questions />
-        <OutroCard/>
+        <OutroCard />
         <Footer />
       </RootLayout>
     </>

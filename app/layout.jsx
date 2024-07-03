@@ -8,7 +8,8 @@ import { Provider } from "react-redux";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import "tailwindcss/tailwind.css";
+// import "tailwindcss/tailwind.css";
+import "./styles/globals.css";
 
 import "react-quill/dist/quill.snow.css";
 import "slick-carousel/slick/slick.css";
