@@ -83,7 +83,7 @@ const Footer = () => {
         {/* Bottom Center: Rights Reserved */}
         <Grid item xs={12} textAlign="center">
           <Typography fontSize="16" color="textSecondary" mt={1} mb={4}>
-            ©2024 All rights reserved by Neweb.ai, Inc.
+            ©2024 Neweb.ai | All right reserved Commerciax Infotech Pvt Ltd
           </Typography>
         </Grid>
       </Grid>
