@@ -83,7 +83,7 @@ const Footer = () => {
         {/* Bottom Center: Rights Reserved */}
         <Grid item xs={12} textAlign="center">
           <Typography fontSize="16" color="textSecondary" mt={1} mb={4}>
-            ©2024 All rights reserved by Durable, Inc.
+            ©2024 All rights reserved by Neweb.ai, Inc.
           </Typography>
         </Grid>
       </Grid>
