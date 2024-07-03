@@ -10,7 +10,7 @@ function InfoCard() {
           <Grid item xs={12} md={6}>
             <Card
               title="Analytics + Domain"
-              desc="Your Durable website comes with hosting, analytics, and a custom
+              desc="Your Neweb website comes with hosting, analytics, and a custom
           domain name."
               heading="Everything you need to get online"
               imgUrl={false}

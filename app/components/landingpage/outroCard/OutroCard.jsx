@@ -31,7 +31,7 @@ function OutroCard() {
       <Container maxWidth="lg" className="mt-10">
         <Card sx={{ borderRadius: "16px", backgroundColor: "#4c35de" }}>
           {/* <CardHeader
-            title="Try Durable free today"
+            title="Try Neweb free today"
             sx={{ color: "#9182f8" }}
           /> */}
           <CardContent>
@@ -53,7 +53,7 @@ function OutroCard() {
                     color: "white",
                   }}
                 >
-                  Try Durable free today
+                  Try Neweb free today
                 </Typography>
                 <Typography
                   mt={2}

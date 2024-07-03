@@ -23,7 +23,7 @@ const TestimonialTitle = () => {
               },
             }}
           >
-            Join millions of business owners who started with Durable
+            Join millions of business owners who started with Neweb
           </Typography>
         </AnimationFadeIn>
       </Grid>

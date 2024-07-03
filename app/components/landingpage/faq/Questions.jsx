@@ -11,43 +11,43 @@ import { IconChevronDown } from "@tabler/icons-react";
 const Questions = () => {
   const faqs = [
     {
-      question: "What does a Durable website cost?",
+      question: "What does a Neweb website cost?",
       answer:
-        "A Starter subscription to Durable starts at $12 per month. A Business subscription starts at $20 per month. Every Durable subscription includes your website, a custom domain, AI Assistant, Invoicing, an AI-powered CRM, and more.",
+        "A Starter subscription to Neweb starts at $12 per month. A Business subscription starts at $20 per month. Every Neweb subscription includes your website, a custom domain, AI Assistant, Invoicing, an AI-powered CRM, and more.",
     },
     {
-      question: "Can I use an existing domain with Durable?",
+      question: "Can I use an existing domain with Neweb?",
       answer:
         "Yes. You’ll need to adjust a few details with your domain provider, and it takes about five minutes.",
     },
     {
-      question: "Can I create an e-commerce website with Durable?",
+      question: "Can I create an e-commerce website with Neweb?",
       answer:
-        "While Durable is not designed specifically to support e-commerce businesses, we have had clients launch successful e-commerce businesses on our platform.",
+        "While Neweb is not designed specifically to support e-commerce businesses, we have had clients launch successful e-commerce businesses on our platform.",
     },
     {
-      question: "Are Durable AI generated websites safe?",
+      question: "Are Neweb AI generated websites safe?",
       answer:
-        "Yes. All Durable domains are hosted on a content delivery network called Cloudflare. We chose Cloudflare because they offer fast and secure SSL generation, firewalls, and excellent protection from all web attacks including DDos.",
+        "Yes. All Neweb domains are hosted on a content delivery network called Cloudflare. We chose Cloudflare because they offer fast and secure SSL generation, firewalls, and excellent protection from all web attacks including DDos.",
     },
 
     {
       question: "Does a custom domain cost extra?",
       answer:
-        "Nope! Custom domains are free with every Durable subscription and take seconds to create.",
+        "Nope! Custom domains are free with every Neweb subscription and take seconds to create.",
     },
     {
       question: "Can I transfer a website to someone else?",
       answer:
-        "Yes. You can add additional users to any Durable website. Then, you can change all account and billing settings to transfer your entire website.",
+        "Yes. You can add additional users to any Neweb website. Then, you can change all account and billing settings to transfer your entire website.",
     },
     {
       question: "Can I edit my website's HTML?",
       answer:
-        "Durable is a “no code” solution to building websites. Because of that, we don't offer extensive options for HTML customization. But if you have a specific need or request, get in touch with us.",
+        "Neweb is a “no code” solution to building websites. Because of that, we don't offer extensive options for HTML customization. But if you have a specific need or request, get in touch with us.",
     },
     {
-      question: "Can I keep my custom domain if I want to leave Durable?",
+      question: "Can I keep my custom domain if I want to leave Neweb?",
       answer:
         "Yes! When cancelling your account, simply get in touch with us and we'll arrange to have your custom domain transferred to you. Note that it takes a couple of weeks to transfer over.",
     },

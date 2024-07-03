@@ -25,7 +25,7 @@ export const MyApp = ({ children }) => {
       <HelmetProvider>
         <div>
           <Helmet>
-            <title>Home By Durable</title>
+            <title>Home By Neweb</title>
           </Helmet>
         </div>
       </HelmetProvider>
